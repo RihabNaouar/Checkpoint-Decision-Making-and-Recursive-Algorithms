@@ -20,15 +20,15 @@ END
 //Ticket Pricing:
 FUNCTION TicketPricing(age:INTEGER) : STRING
 BEGIN
-    if (age<= 12 ) {
-        write "The price is 10 $"
-    }
-    if (age> 12 && age<= 17 ) {
-        write "The price is 15 $"
-    }
-    if (age> 17) {
-        write "The price is 20 $"
-    }
+IF (age<= 12) THEN
+    write "The price is 10 $"
+END_IF
+IF (age> 12 && age<= 17) THEN
+    write "The price is 15 $"
+END_IF
+IF (age> 17) THEN
+    write "The price is 20 $"
+END_IF
 END
 //------------------------------------------------------------------------
 //Recursion
@@ -42,4 +42,38 @@ BEGIN
     ELSE
         RETURN Fibonacci (n-1) + Fibonacci(n-2);
     END_IF
+END
+
+//Power Function
+FUNCTION Power(x : INTEGER,n :INTEGER) : INTEGER
+BEGIN
+    IF (n === 0) THEN
+        return 1
+    END_IF
+    if (n < 0) {
+        return 1;/ power(x, -n);
+    }
+    if (n < 0) {
+        return 1 / power(x, -n);
+    }
+    return base * power(x, n - 1);
+
+//Power Function
+FUNCTION power(x: INTEGER,n:INTEGER) : INTEGER
+VAR
+    result : INTEGER
+BEGIN
+    IF (n:=0) THEN
+        result := 1;
+    END_IF
+    IF (n := 1) THEN
+        result := x;
+    END_IF
+    IF (n < 0) THEN
+        result :=  x* 1 / power(x, -n);
+    ELSE
+        result := x * power(x, n - 1);
+    
+    END_IF
+    return result
 END
